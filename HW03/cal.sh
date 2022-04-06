@@ -1,5 +1,6 @@
 #!/bin/bash
 
+echo "project management in github"
 echo "now i'm in `pwd`"
 
 read num1 < num1.txt
