@@ -5,6 +5,8 @@ echo "now i'm in `pwd`"
 read num1 < num1.txt
 read num2 < num2.txt
 
+data=($num1 $num2)
+
 if [ $# -lt 1 ]; then
 	PS3="select menu : "
 	echo "...none operator parameter..."
@@ -16,14 +18,13 @@ if [ $# -lt 1 ]; then
 	done
 fi
 
-echo "num1 : $num1"
-echo "num2 : $num2"
+echo "nums_array : ${data[0]} ${data[1]}"
 echo "op : $1"
 echo -n "result : "
 case $1 in
-	add) let re="$num1+$num2";;
-	sub) let re="$num1-$num2";;
-	div) let re="$num1/$num2";;
-	mul) let re="$num1*$num2";;
+	add) let re="${data[0]}+${data[1]}";;
+	sub) let re="${data[0]}-${data[1]}";;
+	div) let re="${data[0]}/${data[1]}";;
+	mul) let re="${data[0]}*${data[1]}";;
 esac
 echo $re
